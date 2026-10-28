@@ -65,13 +65,10 @@ fun LoginScreen(
                 modifier = Modifier
                     .fillMaxWidth(0.85f)
                     .background(
-                        color = Color.Gray,
-                        shape = RoundedCornerShape(12.dp)
+                        color = Color.Gray, shape = RoundedCornerShape(12.dp)
                     )
                     .border(
-                        width = 6.dp,
-                        color = Color.Gray,
-                        shape = RoundedCornerShape(12.dp)
+                        width = 6.dp, color = Color.Gray, shape = RoundedCornerShape(12.dp)
                     )
                     .padding(12.dp)
             ) {
@@ -90,28 +87,22 @@ fun LoginScreen(
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Text(
-                    text = "Género:",
-                    color = Color.White,
-                    fontSize = 16.sp
+                    text = "Género:", color = Color.White, fontSize = 16.sp
                 )
 
                 genders.forEach { gender ->
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier.clickable { selectedGender = gender }
-                    ) {
+                        modifier = Modifier.clickable { selectedGender = gender }) {
                         RadioButton(
                             selected = (selectedGender == gender),
                             onClick = { selectedGender = gender },
                             colors = RadioButtonDefaults.colors(
-                                selectedColor = Color.White,
-                                unselectedColor = Color.LightGray
+                                selectedColor = Color.White, unselectedColor = Color.LightGray
                             )
                         )
                         Text(
-                            text = gender,
-                            color = Color.White,
-                            fontSize = 14.sp
+                            text = gender, color = Color.White, fontSize = 14.sp
                         )
                     }
                 }
@@ -144,10 +135,7 @@ fun LoginScreen(
             Button(
                 onClick = {
                     onLoginSuccess(
-                        nombre,
-                        selectedGender,
-                        montanaValue.toInt(),
-                        sprintValue.toInt()
+                        nombre, selectedGender, montanaValue.toInt(), sprintValue.toInt()
                     )
                 },
                 modifier = Modifier
@@ -159,9 +147,7 @@ fun LoginScreen(
                 shape = RoundedCornerShape(50.dp)
             ) {
                 Text(
-                    text = "Enviar",
-                    color = Color.White,
-                    fontSize = 16.sp
+                    text = "Enviar", color = Color.White, fontSize = 16.sp
                 )
             }
 
@@ -185,25 +171,16 @@ fun LoginScreen(
  */
 @Composable
 fun UcamSlider(
-    label: String,
-    value: Float,
-    onValueChange: (Float) -> Unit,
-    modifier: Modifier = Modifier
+    label: String, value: Float, onValueChange: (Float) -> Unit, modifier: Modifier = Modifier
 ) {
     Column(
-        modifier = modifier,
-        horizontalAlignment = Alignment.CenterHorizontally
+        modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Slider(
-            value = value,
-            onValueChange = onValueChange,
-            valueRange = 0f..100f,
-            steps = 4
+            value = value, onValueChange = onValueChange, valueRange = 0f..100f, steps = 4
         )
         Text(
-            text = "$label: ${value.toInt()}",
-            color = Color.White,
-            fontSize = 14.sp
+            text = "$label: ${value.toInt()}", color = Color.White, fontSize = 14.sp
         )
     }
 
@@ -221,18 +198,37 @@ fun CustomLogo(modifier: Modifier = Modifier) {
             .background(LogoYellow)
     ) {
         Column(
-            modifier = Modifier
-                .fillMaxSize(),
+            modifier = Modifier.fillMaxSize(),
         ) {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
                     .weight(1f),
             ) {
-                Box(modifier = Modifier.weight(1f).fillMaxHeight().background(LogoRed))
-                Box(modifier = Modifier.weight(1f).fillMaxHeight().background(LogoRed))
-                Box(modifier = Modifier.weight(1f).fillMaxHeight().background(LogoRed))
-                Box(modifier = Modifier.weight(1f).fillMaxHeight().background(LogoYellow))
+                Box(
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxHeight()
+                        .background(LogoRed)
+                )
+                Box(
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxHeight()
+                        .background(LogoRed)
+                )
+                Box(
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxHeight()
+                        .background(LogoRed)
+                )
+                Box(
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxHeight()
+                        .background(LogoYellow)
+                )
             }
 
             Row(
@@ -240,10 +236,30 @@ fun CustomLogo(modifier: Modifier = Modifier) {
                     .fillMaxWidth()
                     .weight(1f),
             ) {
-                Box(modifier = Modifier.weight(1f).fillMaxHeight().background(LogoRed))
-                Box(modifier = Modifier.weight(1f).fillMaxHeight().background(LogoYellow))
-                Box(modifier = Modifier.weight(1f).fillMaxHeight().background(LogoRed))
-                Box(modifier = Modifier.weight(1f).fillMaxHeight().background(LogoYellow))
+                Box(
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxHeight()
+                        .background(LogoRed)
+                )
+                Box(
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxHeight()
+                        .background(LogoYellow)
+                )
+                Box(
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxHeight()
+                        .background(LogoRed)
+                )
+                Box(
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxHeight()
+                        .background(LogoYellow)
+                )
             }
 
             Row(
@@ -251,10 +267,30 @@ fun CustomLogo(modifier: Modifier = Modifier) {
                     .fillMaxWidth()
                     .weight(1f),
             ) {
-                Box(modifier = Modifier.weight(1f).fillMaxHeight().background(LogoRed))
-                Box(modifier = Modifier.weight(1f).fillMaxHeight().background(LogoRed))
-                Box(modifier = Modifier.weight(1f).fillMaxHeight().background(LogoRed))
-                Box(modifier = Modifier.weight(1f).fillMaxHeight().background(LogoYellow))
+                Box(
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxHeight()
+                        .background(LogoRed)
+                )
+                Box(
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxHeight()
+                        .background(LogoRed)
+                )
+                Box(
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxHeight()
+                        .background(LogoRed)
+                )
+                Box(
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxHeight()
+                        .background(LogoYellow)
+                )
             }
 
             Row(
@@ -263,10 +299,30 @@ fun CustomLogo(modifier: Modifier = Modifier) {
                     .weight(1f),
                 horizontalArrangement = Arrangement.spacedBy(2.dp)
             ) {
-                Box(modifier = Modifier.weight(1f).fillMaxHeight().background(LogoRed))
-                Box(modifier = Modifier.weight(1f).fillMaxHeight().background(LogoYellow))
-                Box(modifier = Modifier.weight(1f).fillMaxHeight().background(LogoYellow))
-                Box(modifier = Modifier.weight(1f).fillMaxHeight().background(LogoYellow))
+                Box(
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxHeight()
+                        .background(LogoRed)
+                )
+                Box(
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxHeight()
+                        .background(LogoYellow)
+                )
+                Box(
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxHeight()
+                        .background(LogoYellow)
+                )
+                Box(
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxHeight()
+                        .background(LogoYellow)
+                )
             }
         }
 
@@ -280,5 +336,5 @@ fun CustomLogo(modifier: Modifier = Modifier) {
                 .align(Alignment.BottomCenter)
                 .padding(bottom = 8.dp)
         )
-        }
     }
+}
