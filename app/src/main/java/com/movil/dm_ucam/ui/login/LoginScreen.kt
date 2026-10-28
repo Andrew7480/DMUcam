@@ -30,7 +30,7 @@ import com.movil.dm_ucam.ui.theme.UcamPrimary
 
 @Composable
 fun LoginScreen(
-    onLoginSuccess: () -> Unit
+    onLoginSuccess: (String, String, Int, Int) -> Unit
 ) {
     var nombre by remember { mutableStateOf("") }
     var selectedGender by remember { mutableStateOf("Hombre") }
@@ -142,7 +142,14 @@ fun LoginScreen(
 
             // 5. Boton enviar
             Button(
-                onClick = { onLoginSuccess() },
+                onClick = {
+                    onLoginSuccess(
+                        nombre,
+                        selectedGender,
+                        montanaValue.toInt(),
+                        sprintValue.toInt()
+                    )
+                },
                 modifier = Modifier
                     .fillMaxWidth(0.5f)
                     .height(45.dp),
@@ -199,6 +206,8 @@ fun UcamSlider(
             fontSize = 14.sp
         )
     }
+
+
 }
 
 /**
@@ -271,5 +280,5 @@ fun CustomLogo(modifier: Modifier = Modifier) {
                 .align(Alignment.BottomCenter)
                 .padding(bottom = 8.dp)
         )
+        }
     }
-}

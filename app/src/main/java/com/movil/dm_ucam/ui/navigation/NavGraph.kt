@@ -9,18 +9,22 @@ import com.movil.dm_ucam.ui.login.LoginScreen
 
 @Composable
 fun AppNavGraph(
-    isLoggedIn: Boolean = false // Extensible
+    isLoggedIn: Boolean = false
 ) {
     val navController = rememberNavController()
-    val startDestination = if (isLoggedIn) Screen.Home.route else Screen.Login.route
 
     NavHost(
         navController = navController,
-        startDestination = startDestination
+        startDestination = Screen.Login.route
     ) {
         composable(Screen.Login.route) {
             LoginScreen(
-                onLoginSuccess = {
+                onLoginSuccess = { name, gender, montana, sprint ->
+                    navController.currentBackStackEntry?.savedStateHandle?.set("name", name)
+                    navController.currentBackStackEntry?.savedStateHandle?.set("gender", gender)
+                    navController.currentBackStackEntry?.savedStateHandle?.set("montana", montana)
+                    navController.currentBackStackEntry?.savedStateHandle?.set("sprint", sprint)
+
                     navController.navigate(Screen.Home.route) {
                         popUpTo(Screen.Login.route) { inclusive = true }
                     }
@@ -28,7 +32,17 @@ fun AppNavGraph(
             )
         }
         composable(Screen.Home.route) {
+            val backStackEntry = navController.previousBackStackEntry
+            val name = backStackEntry?.savedStateHandle?.get<String>("name") ?: "Usuario"
+            val gender = backStackEntry?.savedStateHandle?.get<String>("gender") ?: "Otro"
+            val montana = backStackEntry?.savedStateHandle?.get<Int>("montana") ?: 50
+            val sprint = backStackEntry?.savedStateHandle?.get<Int>("sprint") ?: 50
+
             HomeScreen(
+                name = name,
+                gender = gender,
+                montana = montana,
+                sprint = sprint,
                 onLogout = {
                     navController.navigate(Screen.Login.route) {
                         popUpTo(Screen.Home.route) { inclusive = true }
