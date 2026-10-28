@@ -19,10 +19,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.movil.dm_ucam.R
-import com.movil.dm_ucam.ui.theme.Pink40
+import com.movil.dm_ucam.ui.theme.LogoBlueText
+import com.movil.dm_ucam.ui.theme.LogoRed
+import com.movil.dm_ucam.ui.theme.LogoYellow
 import com.movil.dm_ucam.ui.theme.UcamPrimary
 
 @Composable
@@ -50,13 +53,10 @@ fun LoginScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            // 1. Placeholder de Imagen superior (si lo necesitas)
-            Box(
-                modifier = Modifier
-                    .size(250.dp)
-                    .background(Pink40)
-            ) {
-            }
+            Spacer(modifier = Modifier.width(16.dp))
+
+            // 1. Logo creado con cuadrícula 4x4
+            CustomLogo()
 
             Spacer(modifier = Modifier.width(16.dp))
 
@@ -86,7 +86,6 @@ fun LoginScreen(
 
             // 3. Selector de Genero
             Row(
-                modifier = Modifier.fillMaxWidth(0.85f),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
@@ -198,6 +197,79 @@ fun UcamSlider(
             text = "$label: ${value.toInt()}",
             color = Color.White,
             fontSize = 14.sp
+        )
+    }
+}
+
+/**
+ * Componente del Logo personalizado basado en una cuadrícula de 4x4 con celdas de Box.
+ */
+@Composable
+fun CustomLogo(modifier: Modifier = Modifier) {
+    Box(
+        modifier = modifier
+            .size(250.dp)
+            .background(LogoYellow)
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize(),
+        ) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .weight(1f),
+            ) {
+                Box(modifier = Modifier.weight(1f).fillMaxHeight().background(LogoRed))
+                Box(modifier = Modifier.weight(1f).fillMaxHeight().background(LogoRed))
+                Box(modifier = Modifier.weight(1f).fillMaxHeight().background(LogoRed))
+                Box(modifier = Modifier.weight(1f).fillMaxHeight().background(LogoYellow))
+            }
+
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .weight(1f),
+            ) {
+                Box(modifier = Modifier.weight(1f).fillMaxHeight().background(LogoRed))
+                Box(modifier = Modifier.weight(1f).fillMaxHeight().background(LogoYellow))
+                Box(modifier = Modifier.weight(1f).fillMaxHeight().background(LogoRed))
+                Box(modifier = Modifier.weight(1f).fillMaxHeight().background(LogoYellow))
+            }
+
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .weight(1f),
+            ) {
+                Box(modifier = Modifier.weight(1f).fillMaxHeight().background(LogoRed))
+                Box(modifier = Modifier.weight(1f).fillMaxHeight().background(LogoRed))
+                Box(modifier = Modifier.weight(1f).fillMaxHeight().background(LogoRed))
+                Box(modifier = Modifier.weight(1f).fillMaxHeight().background(LogoYellow))
+            }
+
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .weight(1f),
+                horizontalArrangement = Arrangement.spacedBy(2.dp)
+            ) {
+                Box(modifier = Modifier.weight(1f).fillMaxHeight().background(LogoRed))
+                Box(modifier = Modifier.weight(1f).fillMaxHeight().background(LogoYellow))
+                Box(modifier = Modifier.weight(1f).fillMaxHeight().background(LogoYellow))
+                Box(modifier = Modifier.weight(1f).fillMaxHeight().background(LogoYellow))
+            }
+        }
+
+        // Texto "DM UCAM"
+        Text(
+            text = "DM UCAM",
+            color = LogoBlueText,
+            fontWeight = FontWeight.Bold,
+            fontSize = 25.sp,
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .padding(bottom = 8.dp)
         )
     }
 }

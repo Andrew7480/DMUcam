@@ -6,6 +6,10 @@ val UcamPrimary = Color(0xFF004379)
 val UcamPrimaryDark = Color(0xFF002A4E)
 val UcamAccent = Color(0xFF005A9C)
 
+val LogoRed = Color(0xFFEE1C24)
+val LogoYellow = Color(0xFFFFEE00)
+val LogoBlueText = Color(0xFF0000FF)
+
 val Purple80 = Color(0xFFD0BCFF)
 val PurpleGrey80 = Color(0xFFCCC2DC)
 val Pink80 = Color(0xFFEFB8C8)
